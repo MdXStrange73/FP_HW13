@@ -11,7 +11,7 @@
     <form id="contactForm">
       <input type="text" placeholder="Имя" id="firstNameInput" required>
       <input type="text" placeholder="Фамилия" id="lastNameInput" required>
-      <input type="text" placeholder="Номер телефона (только цифры)" id="phoneInput" required>
+      <input type="tel" placeholder="Номер телефона (только цифры)" id="phoneInput" required pattern="[0-9]+">
       <button type="submit">Добавить</button>
     </form>
     <table id="contactsTable">
@@ -28,6 +28,14 @@
       </tbody>
     </table>
   </div>
+  <template id="contactTemplate">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><button class="deleteBtn">Удалить</button></td>
+    </tr>
+  </template>
   <script src="index.js"></script>
 </body>
 </html>

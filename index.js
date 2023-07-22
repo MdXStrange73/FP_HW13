@@ -1,22 +1,12 @@
-// Функция для очистки инпутов
-function clearInputs() {
-    document.getElementById("firstNameInput").value = "";
-    document.getElementById("lastNameInput").value = "";
-    document.getElementById("phoneInput").value = "";
-  }
-  
-  // Функция для добавления контакта в таблицу
-  function addContact(firstName, lastName, phone) {
+// Функция для добавления контакта в таблицу
+function addContact(firstName, lastName, phone) {
     const table = document.getElementById("contactsTable").getElementsByTagName('tbody')[0];
-    const row = table.insertRow();
-    const cell1 = row.insertCell(0);
-    const cell2 = row.insertCell(1);
-    const cell3 = row.insertCell(2);
-    const cell4 = row.insertCell(3);
-    cell1.innerHTML = firstName;
-    cell2.innerHTML = lastName;
-    cell3.innerHTML = phone;
-    cell4.innerHTML = '<button class="deleteBtn">Удалить</button>';
+    const contactTemplate = document.getElementById("contactTemplate");
+    const newRow = contactTemplate.content.cloneNode(true);
+    newRow.querySelector("td:nth-child(1)").textContent = firstName;
+    newRow.querySelector("td:nth-child(2)").textContent = lastName;
+    newRow.querySelector("td:nth-child(3)").textContent = phone;
+    table.appendChild(newRow);
   }
   
   // Функция для валидации номера телефона (должен содержать только цифры)
@@ -57,7 +47,7 @@ function clearInputs() {
   // Функция для обработки нажатия на кнопку удаления контакта
   function deleteContact(event) {
     if (event.target.classList.contains('deleteBtn')) {
-      const row = event.target.parentElement.parentElement;
+      const row = event.target.closest('tr');
       row.remove();
     }
   }
