@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Таблица контактов</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <form id="contactForm">
+      <input type="text" placeholder="Имя" id="firstNameInput" required>
+      <input type="text" placeholder="Фамилия" id="lastNameInput" required>
+      <input type="text" placeholder="Номер телефона (только цифры)" id="phoneInput" required>
+      <button type="submit">Добавить</button>
+    </form>
+    <table id="contactsTable">
+      <thead>
+        <tr>
+          <th>Имя</th>
+          <th>Фамилия</th>
+          <th>Номер телефона</th>
+          <th>Удалить</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Здесь будут добавляться контакты -->
+      </tbody>
+    </table>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
